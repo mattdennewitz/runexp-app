@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Run Expectancy</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+
+    <script src="cordova.js"></script>
+
+    <style type="text/css">
+     label { width: 60px; text-align: right; }
+    </style>
+  </head>
+
+  <body ng-app="re" ng-controller="ReCtrl">
+    <ion-content>
+      <h2>
+        {{ runexp.value | number:3 }}<br />
+        <small>runs score on average from this situation</small>
+      </h2>
+
+      <ul class="list">
+        <li class="item item-checkbox item-first">
+          <label class="checkbox">
+            <input id="b1" type="checkbox" ng-model="game_state.bases._1b" ng-click="updateRunExp()" />
+          </label>
+          Runner on <strong>1B</strong>
+        </li>
+
+        <li class="item item-checkbox">
+          <label class="checkbox">
+            <input id="b2" type="checkbox" ng-model="game_state.bases._2b" ng-click="updateRunExp()" />
+          </label>
+          Runner on <strong>2B</strong>
+        </li>
+
+        <li class="item item-checkbox">
+          <label class="checkbox">
+            <input id="b3" type="checkbox" ng-model="game_state.bases._3b" ng-click="updateRunExp()" />
+          </label>
+          Runner on <strong>3B</strong>
+        </li>
+
+        <li class="item range">
+          <label>Balls</label>
+          <input ng-model="game_state.count.balls" ng-change="updateRunExp()" type="range" min="0" max="3" />
+          <span class="data">{{ game_state.count.balls }}</span>
+        </li>
+
+        <li class="item range">
+          <label>Strikes</label>
+          <input ng-model="game_state.count.strikes" ng-change="updateRunExp()" type="range" min="0" max="2" />
+          <span class="data">{{ game_state.count.strikes }}</span>
+        </li>
+
+        <li class="item range">
+          <label>Outs</label>
+          <input ng-model="game_state.game.outs" ng-change="updateRunExp()" type="range" min="0" max="2" />
+          <span class="data">{{ game_state.game.outs }}</span>
+        </li>
+
+        <li class="item range item-last">
+          <label>Inning</label>
+          <input ng-model="game_state.game.inning" ng-change="updateRunExp()" type="range" name="inning" min="1" max="9" />
+          <span class="data">{{ game_state.game.inning }}</span>
+        </li>
+      </ul>
+    </ion-content>
+  </body>
+</html>

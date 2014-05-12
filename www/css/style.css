@@ -1,0 +1,71 @@
+/* ionic overrides */
+
+.checkbox input:before,
+.checkbox .checkbox-icon:before {
+    border-color: #1abc9c;
+}
+
+.checkbox input:checked:before,
+.checkbox input:checked + .checkbox-icon:before {
+    border-color: #16a085;
+    background: #16a085;
+}
+
+.item {
+    border-style: dotted;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.item.range {
+    padding: 2px 4px;
+}
+
+
+/* app styles */
+
+body {
+    font-family: Avenir;
+    background: url(../slide.jpg) repeat-y;
+    background-position: center -20px;
+}
+
+h2 {
+    color: #fff;
+    font-family: Avenir;
+    line-height: 48px;
+    margin: 0;
+    padding: 24px 0 12px 0;
+    text-align: center;
+    text-shadow: 0 0 8px #222;
+}
+
+h2 small {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+}
+
+span.data {
+    width: 25px;
+}
+
+.item-first {
+    border-top: 0;
+}
+
+.item-last {
+    border-bottom: 0;
+}
+
+
+/* iphone 5 space adjustments */
+@media screen and (device-aspect-ratio: 40/71) {
+    body {
+        background-position: center 10px;
+    }
+        
+    h2 {
+        padding-top: 48px;
+    }
+}
